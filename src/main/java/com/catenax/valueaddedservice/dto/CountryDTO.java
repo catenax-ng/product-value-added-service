@@ -19,11 +19,11 @@ public class CountryDTO implements Serializable {
 
     private Long id;
 
-    @Schema(example = "Germany", required = true)
+    @Schema(example = "Germany")
     @NotNull
     private String country;
 
-    @Schema(example = "DEU", required = true)
+    @Schema(example = "DEU")
     @Size(max = 2)
     private String iso3;
 

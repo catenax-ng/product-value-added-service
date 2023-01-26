@@ -17,7 +17,7 @@ public class ValueAddedServiceApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(ValueAddedServiceApplication.class.getName());
 
-	public static void main(String[] args) throws UnknownHostException {
+	public static void main(String[] args)  {
 		SpringApplication app = new SpringApplication(ValueAddedServiceApplication.class);
 		Environment env = app.run(args).getEnvironment();
 		logApplicationStartup(env);
