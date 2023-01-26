@@ -100,7 +100,7 @@ class RatingApiIntegrationTest {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         Map<String,Object> map = getMap();
-        UriTemplate uritemplate= new UriTemplate("/api/dashboard/getAllRatingsForCompany?companyName={companyName}&year={year}&name={name}&companyName={companyName}&email={email}\"");
+        UriTemplate uritemplate= new UriTemplate("/api/getAllRatingsForCompany?companyName={companyName}&year={year}&name={name}&companyName={companyName}&email={email}\"");
         URI uri = uritemplate.expand(map);
 
         RequestEntity requestEntity = new RequestEntity(headers, HttpMethod.GET, uri);
@@ -121,7 +121,7 @@ class RatingApiIntegrationTest {
 
         Map<String,Object> map = getMapLists();
         map.putAll(getMap());
-        UriTemplate uritemplate= new UriTemplate("/api/dashboard/getAllRatingsScoresForEachBpn?companyName={companyName}&datasource[]={datasource}&bpns[]={bpns}&name={name}&companyName={companyName}&email={email}\"");
+        UriTemplate uritemplate= new UriTemplate("/api/getAllRatingsScoresForEachBpn?companyName={companyName}&datasource[]={datasource}&bpns[]={bpns}&name={name}&companyName={companyName}&email={email}\"");
         URI uri = uritemplate.expand(map);
 
         RequestEntity requestEntity = new RequestEntity(headers, HttpMethod.GET, uri);
@@ -139,7 +139,7 @@ class RatingApiIntegrationTest {
 
         DataSourceDTO dataSourceDTOS = objectMapper.readValue(listDataSource.getInputStream(), DataSourceDTO.class);
 
-       BusinessPartnerDTO businessPartnerDTOS = objectMapper.readValue(listBpn.getInputStream(), BusinessPartnerDTO.class);
+        BusinessPartnerDTO businessPartnerDTOS = objectMapper.readValue(listBpn.getInputStream(), BusinessPartnerDTO.class);
 
         map.put("datasource",objectMapper.writeValueAsString(dataSourceDTOS));
         map.put("bpns",objectMapper.writeValueAsString(businessPartnerDTOS));
@@ -150,5 +150,4 @@ class RatingApiIntegrationTest {
 
 
 }
-
 

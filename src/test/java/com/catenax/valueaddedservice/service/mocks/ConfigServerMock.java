@@ -38,7 +38,7 @@ public class ConfigServerMock {
 
     public static void mocKConnectionToExternalBpnApi(WireMockServer mockServer, List list) throws JsonProcessingException {
 
-        mockServer.stubFor(get("/api/v1/users")
+        mockServer.stubFor(get("/api/dashboard/v1/users")
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Content-Type", APPLICATION_JSON_VALUE)
@@ -47,7 +47,7 @@ public class ConfigServerMock {
 
     public static void mocKConnectionToExternalBpnApiError(WireMockServer mockServer) {
 
-        mockServer.stubFor(get("/api/v1/usersError")
+        mockServer.stubFor(get("/api/dashboard/v1/usersError")
                 .willReturn(aResponse()
                         .withStatus(HttpStatus.BAD_REQUEST.value())
                         .withHeader("Content-Type", APPLICATION_JSON_VALUE)));
