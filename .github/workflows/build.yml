@@ -30,6 +30,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Get version from pom.xml
+        run: mvn help:evaluate -Dexpression=project.version -q -DforceStdout
+        id: version
+        shell: bash
+
       - name: Build
         run: mvn -B package
 
@@ -41,12 +46,11 @@ jobs:
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        uses: docker/login-action
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
@@ -63,7 +67,5 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}, ${{ steps.version.outputs.version }}, latest
           labels: ${{ steps.meta.outputs.labels }}
-
-
