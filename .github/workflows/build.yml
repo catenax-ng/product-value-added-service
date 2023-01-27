@@ -1,6 +1,20 @@
 name: Build - Docker image (SemVer)
 
 on:
+  workflow_call:
+    inputs:
+      imageName:
+        required: true
+        type: string
+        description: Name the built image should get
+      dockerfilePath:
+        required: true
+        type: string
+        description: Path to where the Dockerfile to build is
+      push:
+        required: true
+        type: boolean
+        description: Whether to also push created image or just build it
   push:
     branches:
       - main
@@ -16,7 +30,7 @@ env:
   # Use GH Container Registry instead of docker
   # github.repository equals to <account|org>/<repo>
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}/${{ inputs.imageName }}
 
 jobs:
   docker:
@@ -67,7 +81,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          push: ${{ inputs.push }}
+          file: ${{ inputs.dockerfilePath }}
+          tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest #add 'latest' tag to image
           labels: ${{ steps.meta.outputs.labels }}
 
