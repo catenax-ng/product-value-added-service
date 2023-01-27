@@ -30,10 +30,19 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Get version from pom.xml
-        run: mvn help:evaluate -Dexpression=project.version -q -DforceStdout
+      - name: Set image version
         id: version
-        shell: bash
+        run: |
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          # Support PR ref versions
+          [[ "${{ github.ref }}" == "refs/pull/"* ]] && VERSION=PR-$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\)/merge,\1,')
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "main" ] && VERSION=latest
+          echo VERSION=$VERSION
+          echo "::set-output name=image_tag::$VERSION"
 
       - name: Build
         run: mvn -B package
