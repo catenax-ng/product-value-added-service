@@ -11,8 +11,6 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  RELEASE_VERSION: "${{ github.ref_name }}"
-
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -70,6 +68,6 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}/${{ github.repository }}:${{ env.RELEASE_VERSION }}
+          tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}/${{ github.repository }}:${{ steps.version.output }}
           labels: ${{ steps.meta.outputs.labels }}
 
