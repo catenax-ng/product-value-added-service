@@ -141,6 +141,7 @@ public class DashBoardResource {
             @Parameter(name = "file", description = "") @RequestPart(value = "file", required = false) MultipartFile file
     ) {
         log.debug("REST request to uploadCsv");
+        log.debug("Try to upload File");
         String message = "";
         message = VasConstants.UPLOAD_SUCCESS_MESSAGE + file.getOriginalFilename();
         try {
