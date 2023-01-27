@@ -1,8 +1,10 @@
-name: Build - Docker image (SemVer)
+name: Build Pipeline
 
 on:
   push:
-    branches: [main, dev]
+    branches:
+      - 'main'
+      - 'dev'
   workflow_call:
     inputs:
       imageName:
