@@ -49,6 +49,7 @@ jobs:
           [ "$VERSION" == "dev" ] && VERSION=dev
           echo VERSION=$VERSION
           echo "::set-output name=image_tag::$VERSION"
+          echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,'
 
       - name: Build
         run: mvn -B package
