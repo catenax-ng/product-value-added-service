@@ -72,7 +72,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}:${TRY_IMAGE_TAG}
+          tags: ${{ steps.meta.outputs.tags }}:${{ env.TRY_IMAGE_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
 
 
