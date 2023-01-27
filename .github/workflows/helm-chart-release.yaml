@@ -5,7 +5,7 @@ on:
   push:
     # prevent unnecessary GH action runs for files outside of charts folder
     paths:
-      - 'chart/**'
+      - 'charts/**'
     branches:
       - main
       - dev
