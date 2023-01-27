@@ -7,7 +7,7 @@ server:
 
 vas:
   datasource:
-    host: localhost
+    host: localhostt
     user: default
     pass: defaultpassword
   keycloakClientSecret:

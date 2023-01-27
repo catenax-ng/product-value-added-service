@@ -36,8 +36,6 @@ import java.util.List;
 @SecurityRequirements({@SecurityRequirement(name = "bearerAuth"), @SecurityRequirement(name = "open_id_scheme")})
 @Slf4j
 public class DashBoardResource {
-
-
     @Autowired
     DashboardService dashboardService;
 
@@ -142,7 +140,8 @@ public class DashBoardResource {
             CompanyUserDTO companyUser,
             @Parameter(name = "file", description = "") @RequestPart(value = "file", required = false) MultipartFile file
     ) {
-        log.debug( "REST request to uploadCsv");
+        log.debug("REST request to uploadCsv");
+        log.debug("Try to upload File");
         String message = "";
         message = VasConstants.UPLOAD_SUCCESS_MESSAGE + file.getOriginalFilename();
         try {
