@@ -15,29 +15,18 @@ on:
         required: true
         type: boolean
         description: Whether to also push created image or just build it
-  push:
-    branches:
-      - main
-    # trigger events for SemVer like tags
-    tags:
-      - 'v*.*.*'
-      - 'v*.*.*-*'
-  pull_request:
-    branches:
-      - main
+
 
 env:
-  # Use GH Container Registry instead of docker
-  # github.repository equals to <account|org>/<repo>
+  # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}/${{ inputs.imageName }}
-
 jobs:
-  docker:
+  build-docker:
     runs-on: ubuntu-latest
     permissions:
       packages: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -85,4 +74,3 @@ jobs:
           file: ${{ inputs.dockerfilePath }}
           tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest #add 'latest' tag to image
           labels: ${{ steps.meta.outputs.labels }}
-
