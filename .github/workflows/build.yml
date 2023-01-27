@@ -20,6 +20,8 @@ jobs:
       # This is used to complete the identity challenge
       # with sigstore/fulcio when running outside of PRs.
       id-token: write
+    outputs:
+      image-tag: ${{ steps.version.outputs.image_tag }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -41,6 +43,8 @@ jobs:
           [[ "${{ github.ref }}" == "refs/pull/"* ]] && VERSION=PR-$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\)/merge,\1,')
           # Use Docker `latest` tag convention
           [ "$VERSION" == "main" ] && VERSION=latest
+          # Use Docker `dev` tag convention
+          [ "$VERSION" == "dev" ] && VERSION=dev
           echo VERSION=$VERSION
           echo "::set-output name=image_tag::$VERSION"
 
@@ -77,6 +81,6 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}/${{ github.repository }}:${{ steps.version.output }}
+          tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}/${{ github.repository }}:${{ env.VERSION }}
           labels: ${{ steps.meta.outputs.labels }}
 
