@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  vas:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-01-30T09:55:49.984714518Z"
+    dependencies:
+    - alias: postgres
+      condition: postgres.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.*.*
+    - condition: pgadmin4.enabled
+      name: pgadmin4
+      repository: https://helm.runix.net
+      version: 1.x.x
+    description: A Helm chart for deploying the VAS service
+    digest: 646e9b967806c8f573c2d79aa7a1b177035516ac12dcb5535b7e7795df930f71
+    name: vas
+    type: application
+    urls:
+    - https://github.com/catenax-ng/product-value-added-service/releases/download/vas-2.0.6/vas-2.0.6.tgz
+    version: 2.0.6
+generated: "2023-01-30T09:55:49.984725918Z"
