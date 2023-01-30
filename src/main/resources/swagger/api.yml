@@ -154,6 +154,7 @@ paths:
               type: array
               items:
                 $ref: '#/components/schemas/RangeDTO'
+              maxItems: 3
         required: true
       responses:
         '200':
@@ -320,6 +321,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CompanyUserDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -367,6 +369,7 @@ paths:
             items:
               $ref: '#/components/schemas/RatingDTO'
             default: []
+            maxItems: 20
         - name: year
           in: query
           required: false
@@ -388,6 +391,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DashBoardTableDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -445,6 +449,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ReportDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -471,6 +476,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CountryDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -497,6 +503,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/BusinessPartnerDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -523,6 +530,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CountryDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -576,6 +584,7 @@ paths:
                 items:
                   type: integer
                   format: int32
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -896,6 +905,10 @@ components:
         authorizationCode:
           authorizationUrl: https://centralidp.dev.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/auth
           tokenUrl: https://centralidp.dev.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants access to admin operations
     bearerAuth:
       type: http
       scheme: bearer
