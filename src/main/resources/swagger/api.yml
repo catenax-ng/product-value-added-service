@@ -248,6 +248,7 @@ paths:
             type: array
             items:
               $ref: '#/components/schemas/RatingDTO'
+            maxItems: 20
             default: []
         - name: companyUser
           in: query
@@ -681,6 +682,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReportValuesDTO'
+          maxItems: 20
     ReportValuesDTO:
       type: object
       properties:
