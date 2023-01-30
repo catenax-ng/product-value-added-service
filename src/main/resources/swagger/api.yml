@@ -228,6 +228,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DataSourceDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -269,6 +270,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DashBoardWorldMapDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -295,6 +297,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RangeDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -349,6 +352,7 @@ paths:
                 items:
                   type: string
                   format: byte
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -423,6 +427,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ReportValuesDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
@@ -557,6 +562,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CompanyGatesDTO'
+                maxItems: 20
         '401':
           description: Authentication Required
       security:
