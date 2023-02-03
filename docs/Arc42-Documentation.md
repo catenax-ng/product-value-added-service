@@ -53,15 +53,12 @@ The benefit is to get to know your business partner or potential business partne
 
 ## Stakeholders {#_stakeholders}
 
-+-------------+---------------------------+---------------------------+  
-| Role/Name   | Contact                   | Expectations              |  
-+=============+===========================+===========================+  
-| *           | *\<Contact-1\>*           | *\<Expectation-1\>*       |  
-| \<Role-1\>* |                           |                           |  
-+-------------+---------------------------+---------------------------+  
-| *           | *\<Contact-2\>*           | *\<Expectation-2\>*       |  
-| \<Role-2\>* |                           |                           |  
-+-------------+---------------------------+---------------------------+
+Role/Name | Contact                                                                                                                                                                                                     | Expectations
+--------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -----------
+Member Company | A company that participates in the Catena-X ecosystem (use-cases and data sharing).                                                                                                                         | Participate in the overal value proposition/stream provided by Catena-X.
+Company Admin | A person that manages a single member companies integration into the dataspace on behalf of his employer.                                                                                                   | Manage and monitor the proper integration and function of a member company within the Catena-X ecosystem.
+Company User | A person that acts within the provided functionality of Catena-X on behalf of his employer (that is a member company) | Execute various permitted tasks on behalf of a member company the user is assigned to. 
+
 
 # Architecture Constraints {#section-architecture-constraints}
 
@@ -191,17 +188,12 @@ Dun & Bradstreet, Country Risk ( http://www.dnbcountryrisk.com/, 14 Scores)
 
 ![Technical Building](../docs/image2022-10-26_18-42-52.png)
 
-+-------------------+-----------------------------------------------------------------+  
-|  Topic            | Technologie                                                     |  
-+===================+=================================================================+  
-| Backend           | Rest API, Java, KeyCloak                                        |  
-+-------------------+-----------------------------------------------------------------+  
-| Front-End         | Typescript, ReactJS, React-Simple-Maps                          |  
-+-------------------+-----------------------------------------------------------------+  
-| Infrastructure    | Postgres Database, Azure, Github, ArgoCD, SonarCloud, VeraCode  |  
-+-------------------+-----------------------------------------------------------------+  
-| UI/UX             | HTML, JavaScript, CSS                                           |  
-+-------------------+-----------------------------------------------------------------+
+Topic     | Technologie   
+--------- | -------  
+Backend           | Rest API, Java, KeyCloak  
+Front-End         | Typescript, ReactJS, React-Simple-Maps  
+Infrastructure    | Postgres Database, Azure, Github, ArgoCD, SonarCloud, VeraCode 
+UI/UX             | HTML, JavaScript, CSS
 
 
 # Solution Strategy {#section-solution-strategy}
