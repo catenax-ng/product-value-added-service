@@ -81,12 +81,12 @@ There shall be 3 roles specific to the country risk application in the portal:
 - Company Admin User
 - Company Standard User
 
-![RolesRightsManagement](.../docs/RolesRights.jpg)
+![RolesRightsManagement](../docs/RolesRights.jpg)
 
 
 # System Scope and Context {#section-system-scope-and-context}
 
-![System Scope](.../docs/image2023-1-15_19-3-44.png)
+![System Scope](../docs/image2023-1-15_19-3-44.png)
 
 
 #### Example Data Sources
@@ -189,7 +189,7 @@ Dun & Bradstreet, Country Risk ( http://www.dnbcountryrisk.com/, 14 Scores)
 
 ## Technical Context {#_technical_context}
 
-![Technical Building](.../docs/image2022-10-26_18-42-52.png)
+![Technical Building](../docs/image2022-10-26_18-42-52.png)
 
 +-------------------+-----------------------------------------------------------------+
 |  Topic            | Technologie                                                     |
@@ -214,56 +214,56 @@ This components Diagram represents the possible actions to be done by the User w
 
 Each box represents a feature and each arrow between features represents its dependencies, as is the case of the world map that needs a rating selected to be filled in with the available colors.
 
-![InterfaceDisplay](.../docs/diagram_compenent.png)
+![InterfaceDisplay](../docs/diagram_compenent.png)
 
 #### World Map View
 
-![WorldMap](.../docs/image2022-10-10_16-49-37.png)
+![WorldMap](../docs/image2022-10-10_16-49-37.png)
 
 For this component, it is necessary to call three different APIs that allow mapping the Map and painting based on the score obtained from each Country.
 
-![WorldMapAPI](.../docs/image2022-10-10_17-4-35.png)
+![WorldMapAPI](../docs/image2022-10-10_17-4-35.png)
 
 For each of these APIs we can consult its input and output in the APIs section
 ##### Sample result
 
-![WorldMapColor](.../docs/image2022-10-10_16-52-17.png)
+![WorldMapColor](../docs/image2022-10-10_16-52-17.png)
 
 #### Ratings
 
-![RatingTable](.../docs/image2022-10-10_17-8-48.png)
+![RatingTable](../docs/image2022-10-10_17-8-48.png)
 
 For this component, it is necessary to call just one API that gets the Ratings available for the User.
 
 Some Ratings may be available Globally by User or by the Company they belong to but for more details we will address in the functionalities section.
 
-![RatingAPI](.../docs/image2022-10-10_17-17-20.png)
+![RatingAPI](../docs/image2022-10-10_17-17-20.png)
 
 #### Ranges
 
-![Ranges](.../docs/image2022-10-10_17-21-38.png)
+![Ranges](../docs/image2022-10-10_17-21-38.png)
 
 For this component we have a call to two APIs, one that allows searching for a user's ranges, if any, and another that allows saving them if the user wants to for the next validation of the Map.
 
-![RangesAPI](.../docs/image2022-10-10_17-33-9.png)
+![RangesAPI](../docs/image2022-10-10_17-33-9.png)
 
 #### Business Partners Table
 
-![Table](.../docs/image2022-10-10_17-34-12.png)
+![Table](../docs/image2022-10-10_17-34-12.png)
 
 For this component, it is necessary to call just one API that gets the Information about the Business Partners and the Scores on which country they are displayed.
 
 It is necessary for the user to select one or more ratings for this table to be fully initialized, more details in the functionalities section.
 
-![TableAPI](.../docs/image2022-10-10_17-42-14.png)
+![TableAPI](../docs/image2022-10-10_17-42-14.png)
 
 ##### Sample Result
 
-![SampleTable](.../docs/image2022-10-10_17-42-59.png)
+![SampleTable](../docs/image2022-10-10_17-42-59.png)
 
 #### Country Picker
 
-![Picker](.../docs/image2022-10-11_8-23-17.png)
+![Picker](../docs/image2022-10-11_8-23-17.png)
 
 In this component, we do one call to one API to populate the dropdown menu with a selection of countries. The API used is the getBpnCountries and as explained in the APIs and Swagger section, it retrieves all the countries that are associated to the Business partners. 
 
@@ -271,11 +271,11 @@ In this component, we do one call to one API to populate the dropdown menu with 
 
 #### Company View
 
-![CompanyView](.../docs/image2022-10-11_8-30-59.png)
+![CompanyView](../docs/image2022-10-11_8-30-59.png)
 
 For this component, it is necessary to call three different APIs. The APIs used are the getBpnCountries, getCountryFilterByISO2 and getTableInfo.  With the data that we get from this APIs, and also with the value from the selected country in the country picker component, we can present on the map the markers for the Business Partners of the selected country with some information associated to the markers, like in the example shown bellow. 
 
-![CompanyViewAPI](.../docs/image2022-10-11_9-12-26.png)
+![CompanyViewAPI](../docs/image2022-10-11_9-12-26.png)
 
 # Interfaces
 
@@ -286,7 +286,7 @@ https://vas-country-risk-backend.dev.demo.catena-x.net/swagger-ui/index.html#/
 
 For all the planned use cases, a database was defined where we tried to optimize the relationships and the reuse of dynamic tables to the maximum to avoid extensive links and fields.
 
-![Database](.../docs/DataModel_v6.png)
+![Database](../docs/DataModel_v6.png)
 
 Entities:
 
@@ -310,13 +310,13 @@ To maintain those 2 Github Locations we mainly develop in the CatenaX-ng Github.
 
 To contribute to the Development please follow these Branching guidelines in the CatenaX-ng environment.
 
-![Branching](.../docs/image2023-1-15_21-49-22.png)
+![Branching](../docs/image2023-1-15_21-49-22.png)
 
 # Sequence Diagram
 
 #### Endpoint: /dashboard/getTableInfo
 
-![getDashboardTableinfo](.../docs/DashBoardResource_getAllDashBoardTable.jpg)
+![getDashboardTableinfo](../docs/DashBoardResource_getAllDashBoardTable.jpg)
 In the DashBoardResource we invoke the method getTableInfo, that is inside the DashboardService.
 
 In there we invoke the method getTableInfo, which is situated in the WorldMapAndTableLogicService. Inside this method is were most of the logic is located. 
@@ -336,7 +336,7 @@ After that, in the 1.1.1.5.3 method, inside a for iteration, firstly it filters 
 
 #### Endpoint: /dashboard/getWorldMap
 
-![getWorldMap](.../docs/DashBoardResource_getDashBoardWorldMap.png.png)
+![getWorldMap](../docs/DashBoardResource_getDashBoardWorldMap.png.png)
 
 This Get Dashboard World endpoint is the entry point for populating the World Map.
 
@@ -361,7 +361,7 @@ Score: Country → Germany , Score = ( 36 from CPI Rating * 0.4 % ) +  50 from B
 
 #### Endpoint: /dashboard/allYears
 
-![getAllYears](.../docs/DashBoardResource_getYears.png)
+![getAllYears](../docs/DashBoardResource_getYears.png)
 
 This endpoint returns all possible years based on the ratings this user can view.
 So in the UI we have a bar with the years in which, when changing, the user can see the various ratings for each selected year.
@@ -371,7 +371,7 @@ We have only one important method which is the findRatingsByCompanyUser which ba
 
 #### Endpoint: /dashboard/ratingsByYear
 
-![getRatings](.../docs/DashBoardResource_ratingsByYear.png)
+![getRatings](../docs/DashBoardResource_ratingsByYear.png)
 
 This endpoint, as mentioned above, receives the selected year and returns the available ratings for this user based on the year.
 
@@ -382,14 +382,14 @@ On findRatingsByYearAndCompanyUser we need to call two methods, findRatingsByYea
 
 #### Endpoint: /dashboard/getTemplate
 
-![getTemplate](.../docs/image2022-10-13_16-45-20.jpg)
+![getTemplate](../docs/image2022-10-13_16-45-20.jpg)
 
 This method just implements the download of a template so that users can fill and upload their own ratings.
 
 
 #### Endpoint: /dashboard/uploadCsv
 
-![UploadCSV](.../docs/DashBoardResource_uploadFile.png)
+![UploadCSV](../docs/DashBoardResource_uploadFile.png)
 
 This method is used to upload new ratings, it receives the name of the rating and the user who uploaded it as a parameter.
 
@@ -404,7 +404,7 @@ Each line must contain the Continent of the Country, the name that may vary depe
 
 #### Endpoint: /dashboard/getUserRanges
 
-![getRanges](.../docs/DashBoardResource_userRanges.png)
+![getRanges](../docs/DashBoardResource_userRanges.png)
 
 This endpoint is simple, it only validates if the user already has saved ranges or uses default values, these ranges are used to define the range of each color in the UI, which then defines how each country will be painted based on its score.
 
@@ -419,7 +419,7 @@ Max → 51-100 that represents red color
 
 #### Endpoint: /dashboard/getCountryFilterByISO2
 
-![filterIso2](.../docs/DashBoardResource_getCompanyBpns.jpg)
+![filterIso2](../docs/DashBoardResource_getCompanyBpns.jpg)
 
 This endpoint retrieves all the Countries ordered by their ISO2 code. As a parameter it receives an CompanyUser object.
 
@@ -436,7 +436,7 @@ After that, the List of CountryDTO's id returned all the way through to the Dash
 
 #### Endpoint: /dashboard/getCompanyBpns
 
-![getCompanyBPN](.../docs/DashBoardResource_getCompanyBpns.jpg)
+![getCompanyBPN](../docs/DashBoardResource_getCompanyBpns.jpg)
 
 This endpoint retrieves all the Business partners associated to a company. In the DashboardResource we invoke the getExternalBusinessPartners method, in which we send through an CompanyUser (1.1).
 
@@ -447,7 +447,7 @@ In the end, after the data is retrieved, this data is returned as a List of Buss
 
 #### Endpoint: /dashboard/getBpnCountrys
 
-![getBPNCountry](.../docs/DashBoardResource_getBpnCountrys.jpg)
+![getBPNCountry](../docs/DashBoardResource_getBpnCountrys.jpg)
 
 This endpoint retrieves all the countries that are associated to the Business partners.  In the DashboardResource we invoke the getCountryByAssociatedBPtoUser (1.1) method, in which we send through an CompanyUser.
 
@@ -460,7 +460,7 @@ The method findByCountryIn (1.1.1.2) we pass the returned List of String of the 
 
 #### Endpoint: /dashboard/saveUserRanges
 
-![saveRanges](.../docs/DashBoardResource_saveRanges.jpg)
+![saveRanges](../docs/DashBoardResource_saveRanges.jpg)
 
 In this endpoint, it is received as a parameter a List of RangeDTO that contain three different values affect to three different "Types" (Max, Between and Min) and a CompanyUser.
 
@@ -477,7 +477,7 @@ If the range already exists, in 1.1.2.3 an ForEach iteration is made where the R
 
 #### Endpoint: /dashboard/getReportsByCompanyUser
 
-![getReport](.../docs/DashBoardResource_getReportsByCompanyUser.jpg)
+![getReport](../docs/DashBoardResource_getReportsByCompanyUser.jpg)
 
 In this endpoint, it is received as a parameter only the CompanyUser. It is used to return an list of ReportDTO related to the CompanyUser parameter received.
 
@@ -492,7 +492,7 @@ After that, this lists are joined into a biggest ReportDTO List, that then is re
 
 #### Endpoint: /dashboard/saveReports
 
-![saveReport](.../docs/image2023-1-11_9-40-3.jpg)
+![saveReport](../docs/image2023-1-11_9-40-3.jpg)
 
 In this endpoint, it is received as a parameter the CompanyUser and an ReportDTO that will be saved. It is used to save an ReportDTO related to the CompanyUser parameter received.
 
@@ -511,7 +511,7 @@ If the report would been duplicated, an Http Bad Request status would be shown, 
 
 #### Endpoint: /dashboard/shareReports
 
-![shareReports](.../docs/image2023-1-11_9-48-39.jpg)
+![shareReports](../docs/image2023-1-11_9-48-39.jpg)
 
 In this endpoint, it is received as a parameter the CompanyUser and an ReportDTO that will be used to be shared. It is used to share an ReportDTO related to the CompanyUser parameter received.
 
@@ -530,7 +530,7 @@ If the report would been duplicated, an Http Bad Request status would be shown, 
 
 #### Endpoint: /dashboard/updateReports
 
-![updateReports](.../docs/image2023-1-11_9-49-15.jpg)
+![updateReports](../docs/image2023-1-11_9-49-15.jpg)
 
 In this endpoint, it is received as a parameter the CompanyUser and an ReportDTO that will be used to be upated. It is used to update an ReportDTO related to the CompanyUser parameter received.
 
@@ -549,7 +549,7 @@ After this an Http no content alert is shown, as a sign that the request has bee
 
 #### Endpoint: /dashboard/getReportsValueByReport
 
-![getValueReport](.../docs/image2023-1-11_13-23-10.jpg)
+![getValueReport](../docs/image2023-1-11_13-23-10.jpg)
 
 In this endpoint, it is received as a parameter the CompanyUser and an ReportDTO. It is used to return an list of ReportValuesDTO related to the CompanyUser and RepotDTO parameters received.
 
@@ -560,7 +560,7 @@ After this, an List of ReportValuesDTO is returned in the main class (DashBoardR
 
 #### Endpoint: /dashboard/getAllUserBPDMGates
 
-![getBPDMGates](.../docs/image2023-1-11_9-49-32.jpg)
+![getBPDMGates](../docs/image2023-1-11_9-49-32.jpg)
 
 In this endpoint, it is received as a parameter the CompanyUser. It is used to return an list of CompanyGatesDTO related to the CompanyUser.
 
@@ -571,7 +571,7 @@ After this, an List of CompanyGatesDTOS is returned in the main class (DashBoard
 
 #### Endpoint: /dashboard/getAllRatingsForCompany
 
-![getAllRatingsforCompany](.../docs/image2023-1-11_9-58-31.jpg)
+![getAllRatingsforCompany](../docs/image2023-1-11_9-58-31.jpg)
 
 In this endpoint, it is received as a parameter the CompanyUser and a Integer Year. It is used to return an list of DataSourceDTO related to the CompanyUser and inserted year.
 
@@ -584,7 +584,7 @@ After this, both lists are join onto one and returned in the main class as an Li
 
 #### Endpoint: /dashboard/getAllRatingsScoresForEachBpn
 
-![getRatingsScore](.../docs/image2023-1-11_9-58-28.jpg)
+![getRatingsScore](../docs/image2023-1-11_9-58-28.jpg)
 
 In this endpoint, it is received as a parameter the CompanyUser an dataSource object and a businessPartner object. It is used to return an list of ShareDTO(Mapped ratings to the business partners) related to the parameters inserted.
 
@@ -603,7 +603,7 @@ Finnaly, the mapping will be done for each ShareDTO, that then will return insid
 
 #### Endpoint: /dashboard/deleteReport/{id}
 
-![deleteReport](.../docs/image2023-1-11_9-58-36.jpg)
+![deleteReport](../docs/image2023-1-11_9-58-36.jpg)
 
 This endpoint receives and CompanyUser and also an Long variable which is the id. It is used to delete an Report.
 
@@ -620,7 +620,7 @@ After this, in the main class DashBoardResource, and Http no content is presente
 
 #### Endpoint: /dashboard/deleteRating/{id}
 
-![deleteRating](.../docs/image2023-1-11_9-58-39.jpg)
+![deleteRating](../docs/image2023-1-11_9-58-39.jpg)
 
 This endpoint receives and CompanyUser and also an Long variable which is the id. It is used to delete an Rating.
 
@@ -637,7 +637,7 @@ After this, in the main class DashBoardResource, and Http no content is presente
 
 #### Endpoint: /dashboard/getUserFromCompany
 
-![getCompany](.../docs/image2023-1-11_9-58-21.jpg)
+![getCompany](../docs/image2023-1-11_9-58-21.jpg)
 
 This endpoint receives as an parameter an CompanyUser. It is used to retrieve an List of CompanyUserDto from an company.
 
