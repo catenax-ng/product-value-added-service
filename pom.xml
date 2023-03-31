@@ -36,7 +36,7 @@
 		<h2-version>2.1.214</h2-version>
 		<spring-security-web-version>6.0.1</spring-security-web-version>
 		<postgresql-version>42.5.1</postgresql-version>
-		<jackson-databind>2.13.4.1</jackson-databind>
+		<jackson-databind>2.13.4.2</jackson-databind>
 		<jackson-databind-nullable>0.2.4</jackson-databind-nullable>
 		<wiremock-standalone-version>2.27.2</wiremock-standalone-version>
 		<snake-yaml-version>1.31</snake-yaml-version>
